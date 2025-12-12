@@ -1,1 +1,13 @@
-# sidheshwar-portfolio
+# 🌐 Personal Portfolio
+
+This repository contains the source code for my personal portfolio website, built using **pure HTML with inline CSS**.  
+The portfolio highlights my skills, education, projects, certifications, and contact details in a clean and professional way.
+
+## 🚀 Live Portfolio
+🔗 **Visit my portfolio:** https://your-portfolio-url-here.com  
+*(Replace with your GitHub Pages / hosting URL)*
+
+## 📬 Contact
+Feel free to reach out through my portfolio’s contact section or via GitHub/LinkedIn.
+
+---
