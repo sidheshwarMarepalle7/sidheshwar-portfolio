@@ -2,575 +2,415 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Sidheshwar Marepalle Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio | Java Full Stack Developer</title>
+        <style>
+:root{
+--bg:#050816;--card:rgba(255,255,255,.06);--text:#fff;--muted:#b7c4d8;
+--accent:#00e5ff;--accent2:#7c4dff;--border:rgba(255,255,255,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Segoe UI,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(90px);z-index:-1}
+body:before{width:400px;height:400px;background:var(--accent);top:-150px;right:-100px;opacity:.15}
+body:after{width:400px;height:400px;background:var(--accent2);bottom:-150px;left:-100px;opacity:.15}
+nav{position:fixed;top:0;width:100%;background:rgba(5,8,22,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:999}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+.nav{display:flex;justify-content:space-between;padding:18px 0}
+.logo{font-weight:700;color:var(--accent)}
+.nav a{color:#fff;text-decoration:none;margin-left:18px}
+section{padding:100px 0}
+.hero{min-height:100vh;display:flex;align-items:center;text-align:center}
+.hero h1{font-size:4rem}
+.gradient{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.typing{height:40px;color:var(--muted);font-size:1.3rem;margin:15px 0}
+.btn{display:inline-block;padding:12px 24px;border-radius:30px;text-decoration:none;margin:8px}
+.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#000}
+.secondary{border:1px solid var(--accent);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;backdrop-filter:blur(12px);transition:.3s}
+.card:hover{transform:translateY(-8px)}
+h2{text-align:center;margin-bottom:40px;font-size:2.2rem}
+.skills span{display:inline-block;padding:10px 15px;margin:6px;background:var(--card);border:1px solid var(--border);border-radius:20px}
+.timeline .card{margin-bottom:20px}
+ul{padding-left:20px}
+li{margin:8px 0}
+footer{text-align:center;padding:30px;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}
+.reveal.show{opacity:1;transform:none}
+
+.contact-text{
+    max-width:700px;
+    margin:0 auto 30px;
+    text-align:center;
+    color:var(--muted);
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.contact-btn{
+    padding:14px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:600;
+    color:white;
+    background:var(--card);
+    backdrop-filter:blur(12px);
+    border:1px solid var(--border);
+    transition:.35s ease;
+}
+
+.contact-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+.email-btn:hover{
+    border-color:#22c55e;
+    box-shadow:0 0 20px rgba(34,197,94,.4);
+}
+
+.linkedin-btn:hover{
+    border-color:#0A66C2;
+    box-shadow:0 0 20px rgba(10,102,194,.4);
+}
+
+.github-btn:hover{
+    border-color:#ffffff;
+    box-shadow:0 0 20px rgba(255,255,255,.3);
+}
+
+.hero {
+    background: linear-gradient(135deg, #6ee7b7, #3b82f6);
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+/* ===== HERO IMAGE SECTION (FUTURISTIC GLASS THEME) ===== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+    padding: 120px 20px;   /* controls space above & below */
+    min-height: auto;      /* removes forced full screen height */
+
+    background: radial-gradient(circle at top, rgba(0,229,255,.12), transparent 40%),
+                radial-gradient(circle at bottom, rgba(124,77,255,.12), transparent 40%);
+}
+
+/* PROFILE IMAGE WRAPPER (adds glow ring + glass effect) */
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    padding: 5px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+
+    border: 2px solid var(--border);
+
+    box-shadow:
+        0 0 25px rgba(0, 229, 255, 0.35),
+        0 0 60px rgba(124, 77, 255, 0.25);
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: floatImg 5s ease-in-out infinite;
+}
+
+/* Hover futuristic interaction */
+.profile-img:hover {
+    transform: scale(1.08);
+    box-shadow:
+        0 0 35px rgba(0, 229, 255, 0.6),
+        0 0 80px rgba(124, 77, 255, 0.4);
+}
+
+/* Floating animation */
+@keyframes floatImg {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Optional glow ring effect behind image */
+.profile-img::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,229,255,0.2), transparent 70%);
+    z-index: -1;
+}
+</style>
     </head>
+    <body>
 
-    <body
-        style="margin:0; font-family: 'Segoe UI', Tahoma, sans-serif; background:#f4f9ff; color:#333;">
-
-        <!-- HEADER -->
-        <header
-            style="background: linear-gradient(135deg,#6ee7b7,#3b82f6); padding:60px 20px; text-align:center; color:white;">
+        <nav>
+            <div class="container nav">
+                <div class="logo">Java Software Developer</div>
+                <div>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                </div>
+            </div>
+        </nav>
+        <div class="hero">
             <img src="images/resized.jpeg" alt="Sidhshwar's Photo"
-                style="width:160px; height:160px; border-radius:50%; border:4px solid white; object-fit:cover; margin-bottom:20px;">
-            <h1 style="font-size:48px; margin:0;">Sidheshwar Marepalle</h1>
-            <p style="font-size:20px; margin-top:10px;">Java FullStack
-                Developer</p>
-            <section style="padding:50px 20px; background:#fefce8;">
-                <div style="max-width:900px; margin:auto;">
-                    <h2 style="color:#ca8a04; font-size:32px;">Tech Stack</h2>
+                class="profile-img">
+        </div>
+        <section class="hero">
 
-                    <div style="
-            display:flex;
-            flex-wrap:wrap;
-            gap:20px;
-            margin-top:20px;
-        ">
+            <div class="container">
 
-                        <!-- Java -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://education.oracle.com/file/general/p-80-java.png"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p style="margin-top:8px; font-size:16px;">Java</p>
-                        </div>
+                <h1>Hi, I'm <span class="gradient">Sidheshwar
+                        Marepalle</span></h1>
+                <div id="typing" class="typing"></div>
+                <p style="max-width:850px;margin:auto;color:var(--muted)">
+                    Software Engineer with hands-on experience developing
+                    enterprise applications using Java, Spring Boot, Spring MVC,
+                    JSP, REST APIs, Hibernate and MySQL. Contributed to Security
+                    Management and Real Estate ERP products through backend
+                    development, API integration, database design, debugging,
+                    testing and AI-assisted software development.
+                </p>
+                <br>
+                <a href="Resume/Sidheshwar-Marepalle-Resume.pdf"
+                    class="btn primary">Download Resume</a>
+                <a href="#projects" class="btn secondary">View Projects</a>
+            </div>
+        </section>
 
-                        <!-- Spring Boot -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://images-cdn.openxcell.com/wp-content/uploads/2024/07/25070933/springboot-inner.svg"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p style="margin-top:8px; font-size:16px;">Spring
-                                Boot</p>
-                        </div>
+        <section id="about" class="reveal">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="card">
+                    <p>
+                        B.Tech graduate with internship experience building
+                        enterprise applications. Worked on Guard Master Security
+                        Platform and BuildPro ERP, developing REST APIs, backend
+                        services, database structures, stored procedures and
+                        JSP-based user interfaces. Familiar with React.js and
+                        modern AI-assisted development using GitHub Copilot and
+                        ChatGPT.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                        <!-- MySQL -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://media.licdn.com/dms/image/v2/D4E12AQFZk_BOEXMuxw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1711355118921?e=2147483647&v=beta&t=0dn89z7vhHg_yojXucqZc86hRlZl6fXb2gUTPaCZSNY"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p style="margin-top:8px; font-size:16px;">MySQL</p>
-                        </div>
+        <section id="skills" class="reveal">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills">
+                    <span>Java</span><span>Spring Boot</span><span>Spring
+                        MVC</span><span>JSP</span>
+                    <span>REST APIs</span><span>Spring Data
+                        JPA</span><span>Hibernate</span>
+                    <span>MySQL</span><span>SQL</span><span>Stored
+                        Procedures</span>
+                    <span>React.js</span><span>Git</span><span>GitHub</span>
+                    <span>Postman</span><span>VisualVM</span>
+                    <span>GitHub Copilot</span><span>ChatGPT</span>
+                </div>
+            </div>
+        </section>
 
-                        <!-- HTML -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://d502jbuhuh9wk.cloudfront.net/courses/6570c175e4b00d436e1c89c0/6570c175e4b00d436e1c89c0_scaled_cover.jpg?v=1"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p style="margin-top:8px; font-size:16px;">HTML</p>
-                        </div>
+        <section id="experience" class="reveal">
+            <div class="container">
+                <h2>Experience</h2>
 
-                        <!-- CSS -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/919/919826.png"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p style="margin-top:8px; font-size:16px;">CSS</p>
-                        </div>
+                <div class="timeline">
+                    <div class="card">
+                        <h3>Java Developement Intern | Prudent Tech IT
+                            Solutions</h3>
+                        <p>Mar 2026 – Jun 2026</p>
+                        <ul>
+                            <li>Contributed to Security Management and Real
+                                Estate ERP enterprise applications.</li>
+                            <li>Developed REST APIs and backend modules using
+                                Java, Spring Boot, Spring MVC and MySQL.</li>
+                            <li>Built document management workflows including
+                                upload, retrieval, download and viewing.</li>
+                            <li>Performed database operations using JPA,
+                                Hibernate and SQL stored procedures.</li>
+                            <li>Conducted API testing using Postman and resolved
+                                backend issues through debugging.</li>
+                            <li>Utilized GitHub Copilot and ChatGPT for
+                                development acceleration and technical
+                                research.</li>
+                        </ul>
+                    </div>
 
-                        <!-- JavaScript -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://www.codewithharry.com/img/notes/js.webp"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p
-                                style="margin-top:8px; font-size:16px;">JavaScript</p>
-                        </div>
+                    <div class="card">
+                        <h3>Java Development Intern | Saiket Systems</h3>
+                        <p>Oct 2025 – Nov 2025</p>
+                        <ul>
+                            <li>Enhanced Java backend modules and improved
+                                application stability.</li>
+                            <li>Performed testing, debugging and issue
+                                resolution activities.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <!-- Git -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://miro.medium.com/0*JLTX-AJQ0oC40mjc.png"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p style="margin-top:8px; font-size:16px;">Git</p>
-                        </div>
+        <section id="projects" class="reveal">
+            <div class="container">
+                <h2>Projects</h2>
 
-                        <!-- Postman -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p
-                                style="margin-top:8px; font-size:16px;">Postman</p>
-                        </div>
+                <div class="grid">
 
-                        <!-- React -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://miro.medium.com/1*Yafu7ihc1LFuP4azerAa4w.png"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p
-                                style="margin-top:8px; font-size:16px;">React</p>
-                        </div>
+                    <div class="card">
+                        <h3>Guard Master – Enterprise Security Management
+                            Platform</h3>
+                        <p>
+                            Developed Document Management functionality enabling
+                            secure document upload, storage, retrieval and
+                            viewing. Built backend services using Spring MVC and
+                            developed JSP-based screens for client-specific and
+                            general-purpose document management workflows.
+                        </p>
+                    </div>
 
-                        <!-- Kafaka -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://i0.wp.com/softwareengineeringdaily.com/wp-content/uploads/2018/06/apache-kafka.png?resize=730%2C389&ssl=1"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p
-                                style="margin-top:8px; font-size:16px;">Kafka</p>
-                        </div>
+                    <div class="card">
+                        <h3>BuildPro – Enterprise ERP Platform</h3>
+                        <p>
+                            Worked on the Post-Sales module of a Real Estate ERP
+                            platform. Developed REST APIs, database tables,
+                            relationships and stored procedures using Spring
+                            Boot, JPA, Hibernate and MySQL to support reporting
+                            and operational workflows.
+                        </p>
+                    </div>
 
-                        <!-- JWT -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://cdn.prod.website-files.com/62d9b9c78f111f03f778e150/68625321c02c1ec83986a66f_jwt%20tokens.png"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p
-                                style="margin-top:8px; font-size:16px;">JWT</p>
-                        </div>
-                        
-                        <!-- AWS -->
-                        <div style="text-align:center; color:#001f3f;">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMG6QtFiFWPugbhk_Exio8BSEfzAdjulSwlg&s"
-                                style="width:60px; height:60px; object-fit:contain;">
-                            <p
-                                style="margin-top:8px; font-size:16px;">AWS</p>
-                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="container">
+                <h2>Professional Strengths</h2>
+                <div class="grid">
+                    <div class="card">Backend Development</div>
+                    <div class="card">REST API Development</div>
+                    <div class="card">Enterprise Applications</div>
+                    <div class="card">Database Design</div>
+                    <div class="card">Debugging & Testing</div>
+                    <div class="card">AI-Assisted Development</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <section id="contact" class="reveal">
+                <div class="container">
+                    <h2>Let's Connect</h2>
+                    <br>
+                    <hr>
+                    <br>
+                    <p class="contact-text">
+                        Open to Software Engineer, Java Backend Developer, and
+                        Full Stack Developer opportunities.
+                        Feel free to reach out for career
+                        opportunities.
+                    </p>
+
+                    <div class="contact-buttons">
+
+                        <!-- Email -->
+                        <button class="contact-btn email-btn" id="copyEmailBtn">
+                            📧 Email Me
+                        </button>
+
+                        <!-- LinkedIn -->
+                        <a
+                            href="https://www.linkedin.com/in/marepallesidheshwar"
+                            target="_blank"
+                            class="contact-btn linkedin-btn">
+                            🔗 LinkedIn
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/sidheshwarMarepalle7"
+                            target="_blank"
+                            class="contact-btn github-btn">
+                            💻 GitHub
+                        </a>
                     </div>
                 </div>
             </section>
+            © 2026 Sidheshwar Marepalle | Java Full Stack Developer
+        </footer>
 
-        </header>
+        <script>
+const roles=["Java Full Stack Developer","Java Backend Developer","Spring Boot Developer","Enterprise Application Developer","AI-Assisted Software Engineer"];
+let i=0,j=0,d=false;
+const el=document.getElementById("typing");
+function type(){
+let t=roles[i];
+el.textContent=t.substring(0,j);
+if(!d){j++;if(j>t.length){d=true;setTimeout(type,1200);return;}}
+else{j--;if(j===0){d=false;i=(i+1)%roles.length;}}
+setTimeout(type,d?40:80);
+}
+type();
 
-        <!-- SUMMARY -->
-        <section style="padding:50px 20px; max-width:900px; margin:auto;">
-            <h2 style="color:#2563eb; font-size:32px;">Summary</h2>
-            <p style="line-height:1.7; font-size:18px;">
-                <b>Motivated Java Developer with a strong foundation in Core Java, object-oriented programming, and SQL. Hands-on
-experience through academic projects and internships in building backend services, integrating databases, and
-debugging applications. Familiar with JWT-based authentication and AWS fundamentals, with a strong focus on writing
-clean, maintainable code and continuously improving technical skills.
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
+});
+document.querySelectorAll(".reveal").forEach(x=>obs.observe(x));
 
+document
+    .getElementById("copyEmailBtn")
+    .addEventListener("click", () => {
 
-                </p>
-            </section>
+        navigator.clipboard.writeText(
+            "sidheshwarkmarepalle@gmail.com"
+        );
 
-            <!-- INTERNSHIP EXPERIENCE -->
-            <section style="padding:50px 20px; background:#e0f2fe;">
-                <div style="max-width:900px; margin:auto;">
-                    <h2 style="color:#0ea5e9; font-size:32px;">Internship
-                        Experience</h2>
+        const btn =
+            document.getElementById("copyEmailBtn");
 
-                    <!-- Internship 1 -->
-                    <h3 style="color:#0369a1;">Java Development Intern — Saiket
-                        Systems (10/2025 – 11/2025)</h3>
-                    <ul style="font-size:18px; line-height:1.7;">
-                        <li>Engineered and optimized Core Java modules using OOP
-                            principles and the Collections Framework, improving
-                            application
-                            stability and reducing runtime errors</li>
-                        <li>Applied structured exception handling and global
-                            error management, reducing application failures and
-                            improving overall
-                            system reliability.</li>
-                        <li>Supported backend development, debugging, and
-                            feature enhancements across multiple SDLC phases,
-                            ensuring timely
-                            and quality code delivery</li>
-                    </ul>
-                </div>
-            </section>
+        btn.innerHTML = "✅ Email Copied";
 
-            <!-- PROJECTS -->
-            <section style="padding:50px 20px; max-width:1100px; margin:auto;">
-    <h2 style="color:#059669; font-size:32px; text-align:center; margin-bottom:40px;">
-        Projects
-    </h2>
+        setTimeout(() => {
+            btn.innerHTML = "📧 Email Me";
+        }, 2000);
+    });
 
-    <div style="
-        display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-        gap:30px;
-    ">
+    // ===== IMAGE REVEAL ANIMATION =====
+const img = document.querySelector(".profile-img");
 
-        <!-- Project 1 -->
-        <div style="
-            background:white;
-            padding:25px;
-            border-radius:15px;
-            box-shadow:0 4px 12px rgba(0,0,0,0.1);
-        ">
-            <h3 style="margin-top:0; color:#047857;">
-                SpeechAlign : Misarticulation Speech Therapy Platform
-            </h3>
-            <p style="font-size:15px; color:#065f46; font-weight:600;">
-                Spring MVC • JSP • Spring Data JPA • MySQL
-            </p>
-            <ul style="font-size:17px; line-height:1.7; padding-left:20px;">
-                <li>Architected a full-stack application using Layered Architecture, improving maintainability by ~30%.</li>
-                <li>Implemented secure authentication workflows (Login, Registration, Forgot Password), improving session security by ~35%.</li>
-                <li>Leveraged Lombok and Maven to reduce boilerplate code and shorten development cycles by ~25%.</li>
-                <li>Utilized AI-assisted tools for faster debugging and issue resolution, boosting productivity by ~20%.</li>
-            </ul>
-        </div>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0) scale(1)";
+        }
+    });
+});
 
-        <!-- Project 2 -->
-        <div style="
-            background:white;
-            padding:25px;
-            border-radius:15px;
-            box-shadow:0 4px 12px rgba(0,0,0,0.1);
-        ">
-            <h3 style="margin-top:0; color:#047857;">
-                Student Attendance Management System
-            </h3>
-            <p style="font-size:15px; color:#065f46; font-weight:600;">
-                Java • Spring Boot • REST API • MySQL
-            </p>
-            <ul style="font-size:17px; line-height:1.7; padding-left:20px;">
-                <li>Developed secure REST APIs to automate attendance tracking, reducing manual data entry by 40%.</li>
-                <li>Implemented full CRUD operations using a strict Layered Architecture.</li>
-                <li>Integrated Hibernate ORM with MySQL for efficient entity persistence.</li>
-                <li>Validated API responses using Postman to ensure accuracy and consistency.</li>
-                <li>Used Maven for build automation and scalable dependency management.</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
-            <!-- TECHNICAL SKILLS -->
-            <section style="padding:50px 20px; background:#fefce8;">
-    <div style="max-width:1100px; margin:auto;">
-
-        <h2 style="color:#ca8a04; font-size:32px; text-align:center; margin-bottom:40px;">
-            Technical Skills
-        </h2>
-
-        <div style="
-            display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-            gap:25px;
-        ">
-
-            <!-- Programming & Scripting -->
-            <div style="
-                background:white;
-                padding:22px;
-                border-radius:15px;
-                box-shadow:0 4px 12px rgba(0,0,0,0.1);
-            ">
-                <h3 style="margin-top:0; color:#92400e;">Programming & Scripting</h3>
-                <p style="font-size:17px; line-height:1.6;">
-                    Java | SQL | JavaScript | C++ <span style="color:#6b7280;">(basic)</span>
-                </p>
-            </div>
-
-            <!-- Backend & Platforms -->
-            <div style="
-                background:white;
-                padding:22px;
-                border-radius:15px;
-                box-shadow:0 4px 12px rgba(0,0,0,0.1);
-            ">
-                <h3 style="margin-top:0; color:#92400e;">Backend & Platforms</h3>
-                <p style="font-size:17px; line-height:1.6;">
-                    Spring Boot | Spring MVC | Hibernate ORM | Spring Data JPA |
-                    REST APIs | JDBC | Kafka <span style="color:#6b7280;">(foundational)</span>
-                </p>
-            </div>
-
-            <!-- Security & Cloud -->
-            <div style="
-                background:white;
-                padding:22px;
-                border-radius:15px;
-                box-shadow:0 4px 12px rgba(0,0,0,0.1);
-            ">
-                <h3 style="margin-top:0; color:#92400e;">Security & Cloud</h3>
-                <p style="font-size:17px; line-height:1.6;">
-                    JWT Authentication | AWS Fundamentals (EC2, S3, IAM)
-                    <span style="color:#6b7280;">(foundational)</span>
-                </p>
-            </div>
-
-            <!-- Frontend -->
-            <div style="
-                background:white;
-                padding:22px;
-                border-radius:15px;
-                box-shadow:0 4px 12px rgba(0,0,0,0.1);
-            ">
-                <h3 style="margin-top:0; color:#92400e;">Frontend</h3>
-                <p style="font-size:17px; line-height:1.6;">
-                    React.js | HTML | CSS | JSP | JSTL
-                </p>
-            </div>
-
-            <!-- Tools & Version Control -->
-            <div style="
-                background:white;
-                padding:22px;
-                border-radius:15px;
-                box-shadow:0 4px 12px rgba(0,0,0,0.1);
-            ">
-                <h3 style="margin-top:0; color:#92400e;">Tools & Version Control</h3>
-                <p style="font-size:17px; line-height:1.6;">
-                    Git | GitHub | Maven | Postman | Eclipse | VS Code
-                </p>
-            </div>
-
-            <!-- Software Engineering Practices -->
-            <div style="
-                background:white;
-                padding:22px;
-                border-radius:15px;
-                box-shadow:0 4px 12px rgba(0,0,0,0.1);
-            ">
-                <h3 style="margin-top:0; color:#92400e;">Software Engineering Practices</h3>
-                <p style="font-size:17px; line-height:1.6;">
-                    Object-Oriented Programming (OOP) | Data Structures |
-                    Debugging | SDLC
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-            <!-- EDUCATION -->
-            <section style="padding:50px 20px; max-width:900px; margin:auto;">
-    <h2 style="color:#2563eb; font-size:32px; margin-bottom:30px;">
-        Education
-    </h2>
-
-    <!-- B.Tech -->
-    <div style="margin-bottom:30px;">
-        <h3 style="color:#1e3a8a; margin-bottom:5px;">
-            Bachelor of Technology (B.Tech) – Electronics and Telecommunication
-        </h3>
-        <p style="font-size:18px; color:#374151; margin-top:5px;">
-            <strong style="color:#2563eb;">SGGS Institute of Engineering and Technology, Nanded</strong><br>
-            <span style="color:#059669;"><strong>CGPA:</strong> 7.01</span> &nbsp;|&nbsp;
-            <span style="color:#7c3aed;"><strong>Year:</strong> 2025</span>
-        </p>
-    </div>
-
-    <!-- HSC -->
-    <div style="margin-bottom:30px;">
-        <h3 style="color:#1e3a8a; margin-bottom:5px;">
-            Higher Secondary Certificate (HSC)
-        </h3>
-        <p style="font-size:18px; color:#374151; margin-top:5px;">
-            <strong style="color:#2563eb;">State Board of Maharashtra</strong><br>
-            <span style="color:#059669;"><strong>Percentage:</strong> 89%</span> &nbsp;|&nbsp;
-            <span style="color:#7c3aed;"><strong>Year:</strong> 2021</span>
-        </p>
-    </div>
-
-    <!-- SSC -->
-    <div>
-        <h3 style="color:#1e3a8a; margin-bottom:5px;">
-            Secondary School Certificate (SSC)
-        </h3>
-        <p style="font-size:18px; color:#374151; margin-top:5px;">
-            <strong style="color:#2563eb;">State Board of Maharashtra</strong><br>
-            <span style="color:#059669;"><strong>Percentage:</strong> 83.20%</span> &nbsp;|&nbsp;
-            <span style="color:#7c3aed;"><strong>Year:</strong> 2019</span>
-        </p>
-    </div>
-</section>
-
-            <!-- CERTIFICATIONS -->
-            <section style="padding:50px 20px; background:#e0f2fe;">
-                <div style="max-width:900px; margin:auto;">
-
-                    <h2
-                        style="color:#0ea5e9; font-size:32px;">Certifications</h2>
-
-                        <p style="font-size:18px;">
-                        <strong>
-                            <a
-                                href="https://www.linkedin.com/posts/marepallesidheshwar_softwareengineering-jpmorganchase-forage-activity-7418972241444540416-imgY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQKVc8BgDLVD9fwP0bflv4hycZdBqrdN-4"
-                                style="color:#0ea5e9; text-decoration:none; font-weight:700;
-                          transition:0.3s;"
-                                onmouseover="this.style.color='#0369a1';"
-                                onmouseout="this.style.color='#0ea5e9';">
-                                Software Engineering Job Simulation
-(Spring Boot, Kafka, RESTful API)
-
-                            </a>
-                        </strong>
-                        — Forage (2026)
-                    </p>
-
-                    <p style="font-size:18px;">
-                        <strong>
-                            <a
-                                href="https://www.linkedin.com/posts/marepallesidheshwar_java-exceptionhandling-infosysspringboard-share-7402035984508317696-KRMo?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQKVc8BgDLVD9fwP0bflv4hycZdBqrdN-4"
-                                style="color:#0ea5e9; text-decoration:none; font-weight:700;
-                          transition:0.3s;"
-                                onmouseover="this.style.color='#0369a1';"
-                                onmouseout="this.style.color='#0ea5e9';">
-                                SE Exception Handling
-                            </a>
-                        </strong>
-                        — Infosys Springboard
-                    </p>
-
-                    <p style="font-size:18px;">
-                        <strong>
-                            <a
-                                href="https://www.linkedin.com/posts/marepallesidheshwar_javaprogramming-oop-infosysspringboard-activity-7375928514262265856-u2Sm?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQKVc8BgDLVD9fwP0bflv4hycZdBqrdN-4"
-                                style="color:#0ea5e9; text-decoration:none; font-weight:700;
-                          transition:0.3s;"
-                                onmouseover="this.style.color='#0369a1';"
-                                onmouseout="this.style.color='#0ea5e9';">
-                                OOP (Java)
-                            </a>
-                        </strong>
-                        — Infosys Springboard (2025)
-                    </p>
-
-                </div>
-            </section>
-
-            <!-- EXTRA CURRICULAR -->
-            <section style="padding:50px 20px; max-width:900px; margin:auto;">
-                <h2 style="color:#ca8a04; font-size:32px;">Extracurricular &
-                    Leadership</h2>
-
-                <h3>Pragyaa (Techfest – SGGSIE&T)</h3><i>Media Joint Coordinator
-                    (2023), Guest Experience Manager (2024)</i>
-                <ul style="font-size:18px; line-height:1.7;">
-                    <li>Organized large-scale events improving audience
-                        engagement
-                        and coordination.</li>
-                    <li>Managed student teams and streamlined event
-                        execution.</li>
-                </ul>
-
-                <h3>Chitraksha (Photography Club)</h3>
-                <i>Assistant Photographer(2022)</i>
-                <ul style="font-size:18px; line-height:1.7;">
-                    <li>Captured events, showcased creativity, and promoted the
-                        club’s activities.</li>
-                    <li>Enhanced visual documentation and engagement through
-                        photography.</li>
-                </ul>
-            </section>
-
-            <!-- HOBBIES -->
-            <section style="padding:50px 20px; background:#fefce8;">
-                <div style="max-width:900px; margin:auto;">
-                    <h2 style="color:#ca8a04; font-size:32px;">Hobbies &
-                        Interests</h2>
-                    <ul style="font-size:18px; line-height:1.7;">
-                        <li>Photography</li>
-                        <li>Cycling</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Resume download button-->
-            <section style="padding:50px 20px; background:#fefce8;">
-                <div style="max-width:900px; margin:auto;">
-                    <a href="Resume/Sidheshwar-Marepalle-Resume.pdf" download
-                        style="
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        padding: 14px 28px;
-        background:#3b82f6;
-        color:white;
-        font-size:18px;
-        font-family:'Segoe UI', Tahoma, sans-serif;
-        border-radius:12px;
-        text-decoration:none;
-        font-weight:600;
-        box-shadow:0 4px 12px rgba(0,0,0,0.15);
-        transition:all 0.3s ease;
-        z-index:999;
-   "
-                        onmouseover="this.style.background='#22c55e'; this.style.transform='scale(1.08)'; this.style.boxShadow='0 6px 14px rgba(0,0,0,0.25)'"
-                        onmouseout="this.style.background='#3b82f6'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'">
-                        ⬇ Download Resume
-                    </a>
-
-                </div>
-            </section>
-            <br>
-
-            <footer
-                style="padding:50px 20px; background:#3b82f6; color:white; text-align:center;">
-
-                <h2 style="color: chartreuse;">Contact Me</h2>
-
-                <div
-                    style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-
-                    <!-- Email Button -->
-                    <a href="javascript:void(0)"
-                        style="
-        padding:12px 22px;
-        background:#ffffff;
-        color:#3b82f6;
-        font-size:16px;
-        font-weight:600;
-        text-decoration:none;
-        border-radius:25px;
-        box-shadow:0 4px 10px rgba(0,0,0,0.15);
-        transition:all 0.3s ease;
-        cursor:pointer;
-   "
-                        onclick="
-        navigator.clipboard.writeText('sidheshwarkmarepalle@gmail.com');
-        this.innerText='✅ Copied!';
-        setTimeout(() => this.innerText='📧 Email', 2000);
-   "
-                        onmouseover="this.style.background='#d1fae5'; this.style.transform='scale(1.08)';"
-                        onmouseout="this.style.background='#ffffff'; this.style.transform='scale(1)';">
-                        📧 Email
-                    </a>
-
-                    <!-- LinkedIn Button -->
-                    <a href="https://www.linkedin.com/in/marepallesidheshwar"
-                        target="_blank"
-                        style="
-            padding:12px 22px;
-            background:#ffffff;
-            color:#0a66c2;
-            font-size:16px;
-            font-weight:600;
-            text-decoration:none;
-            border-radius:25px;
-            box-shadow:0 4px 10px rgba(0,0,0,0.15);
-            transition:all 0.3s ease;
-       "
-                        onmouseover="this.style.background='#e0f2fe'; this.style.transform='scale(1.08)';"
-                        onmouseout="this.style.background='#ffffff'; this.style.transform='scale(1)';">
-                        🔗 LinkedIn
-                    </a>
-
-                    <!-- GitHub Button -->
-                    <a
-                        href="https://github.com/sidheshwarMarepalle7/sidheshwarMarepalle7"
-                        target="_blank"
-                        style="
-            padding:12px 22px;
-            background:#ffffff;
-            color:#111827;
-            font-size:16px;
-            font-weight:600;
-            text-decoration:none;
-            border-radius:25px;
-            box-shadow:0 4px 10px rgba(0,0,0,0.15);
-            transition:all 0.3s ease;
-       "
-                        onmouseover="this.style.background='#f3f4f6'; this.style.transform='scale(1.08)';"
-                        onmouseout="this.style.background='#ffffff'; this.style.transform='scale(1)';">
-                        💼 GitHub
-                    </a>
-
-                </div>
-                <hr>
-
-                2025 Sidheshwar Marepalle — Portfolio Website
-
-            </footer>
-
-        </body>
-    </html>
+if (img) {
+    img.style.opacity = "0";
+    img.style.transform = "translateY(30px) scale(0.9)";
+    img.style.transition = "0.8s ease";
+    observer.observe(img);
+}
+</script>
+    </body>
+</html>
